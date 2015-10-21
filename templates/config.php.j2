@@ -124,6 +124,7 @@ $config = array(
     'logging.level' => SimpleSAML_Logger::{{ simplesaml_loggin_level }},
     'logging.handler' => '{{ simplesaml_logging_handler }}',
 
+    {% raw %}
     /*
      * Specify the format of the logs. Its use varies depending on the log handler used (for instance, you cannot
      * control here how dates are displayed when using the syslog or errorlog handlers), but in general the options
@@ -149,9 +150,10 @@ $config = array(
      *
      * - %msg: the message to be logged.
      *
-     */
+     */    
     //'logging.format' => '%date{%b %d %H:%M:%S} %process %level %stat[%trackid] %msg',
-
+    {% endraw %}
+    
     /*
      * Choose which facility should be used when logging with syslog.
      *
