@@ -1,0 +1,19 @@
+<?php
+
+$config = array(
+
+	// This is a authentication source which handles admin authentication.
+	'admin' => array(
+		// The default is to use core:AdminPassword, but it can be replaced with
+		// any authentication source.
+		'core:AdminPassword',
+	),
+{% for authsource in simplesaml_authsources %}    
+    '{{ authsource.name }}' => array(
+        'saml:SP',
+		'entityID' => '{{ simplesaml_entity_id }}',
+		'idp' => '{{ authsource.idp }}',
+        'discoURL' => {% if authsource.disco_url is defined %}'{{ authsource.disco_url }}'{% else %}NULL{% endif %},
+    ),
+{% endfor %}
+);

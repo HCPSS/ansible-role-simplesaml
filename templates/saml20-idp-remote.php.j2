@@ -1,0 +1,32 @@
+<?php
+/**
+ * SAML 2.0 remote IdP metadata for simpleSAMLphp.
+ *
+ * Remember to remove the IdPs you don't use from this file.
+ *
+ * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-idp-remote 
+ */
+
+{% for meta in simplesaml_metadata %}
+$metadata['{{ meta.entityid }}'] = array (
+    'metadata-set' => '{{ meta.metadata_set }}',
+    'entityid' => '{{ meta.entityid }}',
+    'SingleSignOnService' =>
+    array (
+        0 => array (
+            'Binding' => '{{ meta.ssos.binding }}',
+            'Location' => '{{ meta.ssos.location }}',
+        ),
+    ),
+    'SingleLogoutService' =>
+    array (
+        0 =>
+        array (
+            'Binding' => '{{ meta.slo.binding }}',
+            'Location' => '{{ meta.slo.location }}',
+        ),
+    ),
+    'certData' => '{{ meta.certdata }}',
+    'NameIDFormat' => '{{ meta.name_id_format }}',
+);
+{% endfor %}

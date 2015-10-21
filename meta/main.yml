@@ -1,0 +1,15 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: hcpss-banderson
+  description: SimpleSAMLPHP
+  license: GPLv3
+  company: HCPSS
+  min_ansible_version: 1.9
+  platforms:
+    - name: Ubuntu
+      versions: ["all"]
+  categories:
+    - development
+    - web

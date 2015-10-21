@@ -1,0 +1,63 @@
+---
+simplesaml_install_location: /srv
+simplesaml_entity_id: entity
+simplesaml_version: "1.13.2"
+simplesaml_sha256: ac22f4ae4bc94120182c88efdbb76b2a502c85fb005dca44408370b07848ea32
+
+# An authsource is an object with a name and idp.
+simplesaml_authsources: []
+
+# An array of objects
+simplesaml_metadata: []
+
+# Config
+simplesaml_baseurlpath:             simplesaml/
+simplesaml_certdir:                 cert/
+simplesaml_loggingdir:              log/
+simplesaml_datadir:                 data/
+simplesaml_tempdir:                 /tmp/simplesaml
+simplesaml_debug:                   False
+simplesaml_showerrors:              False
+simplesaml_errorreporting:          False
+simplesaml_debug_validatexml:       False
+simplesaml_auth_adminpassword:      password
+simplesaml_admin_protectindexpage:  True
+simplesaml_admin_protectmetadata:   True
+simplesaml_secretsalt:              salt
+simplesaml_technicalcontact_name:   John Doe
+simplesaml_technicalcontact_email:  john.doe@company.com
+simplesaml_timezone:                America/New_York
+simplesaml_loggin_level:            NOTICE
+simplesaml_logging_handler:         syslog
+simplesaml_enable_saml20_idp:       False
+simplesaml_enable_shib13_idp:       False
+simplesaml_enable_adfs_idp:         False
+simplesaml_enable_wsfed_sp:         False
+simplesaml_enable_authmemcookie:    False
+
+# Session
+simplesaml_session_durration:               28800
+simplesaml_session_datastore_timeout:       14400
+simplesaml_session_state_timeout:           3600
+simplesaml_cookie_name:                     SimpleSAMLSessionID
+simplesaml_session_cookie_lifetime:         0
+simplesaml_session_cookie_domain:           null
+simplesaml_session_cookie_secure:           False
+simplesaml_session_disable_fallback:        False
+simplesaml_enable_http_post:                False
+simplesaml_session_phpsession_cookiename:   null
+simplesaml_session_phpsession_savepath:     null
+simplesaml_session_phpsession_httponly:     False
+simplesaml_session_authtoken_cookiename:    SimpleSAMLAuthToken
+simplesaml_session_rememberme_enable:       False
+simplesaml_session_rememberme_checked:      False
+simplesaml_session_rememberme_lifetime:     1209600
+
+# Language
+simplesaml_language_default:                en
+simplesaml_language_parameter_name:         language
+simplesaml_language_parameter_setcookie:    True
+simplesaml_language_cookie_name:            language
+simplesaml_language_cookie_domain:          null
+simplesaml_language_cookie_path:            /
+simplesaml_language_cookie_lifetime:        77760000

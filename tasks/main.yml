@@ -1,0 +1,30 @@
+---
+# Install SimpleSAMLPHP
+- name: Download SimpleSAML
+  get_url:
+    url: https://simplesamlphp.org/res/downloads/simplesamlphp-{{ simplesaml_version }}.tar.gz
+    dest: /tmp/simplesamlphp-{{ simplesaml_version }}.tar.gz
+    
+- name: Create the SimpleSAML installation location
+  file: path={{ simplesaml_install_location }} state=directory
+  
+- name: Unpack SimpleSAMLPHP
+  unarchive:
+    copy: no
+    src: /tmp/simplesamlphp-{{ simplesaml_version }}.tar.gz
+    dest: "{{ simplesaml_install_location }}"
+    creates: "{{ simplesaml_install_location }}/simplesamlphp-{{ simplesaml_version }}"
+    
+- name: Set facts about the installation
+  set_fact:
+    simplesaml_root: "{{ simplesaml_install_location }}/simplesamlphp-{{ simplesaml_version }}"
+    
+# Write the SAML configuration files
+- name: Write SAML authentication sources file
+  template: src=authsources.php.j2 dest={{ simplesaml_root }}/config/authsources.php
+
+- name: Write the SAML metadata file
+  template: src=saml20-idp-remote.php.j2 dest={{ simplesaml_root }}/metadata/saml20-idp-remote.php
+
+- name: Write the SAML configuration file
+  template: src=config.php.j2 dest={{ simplesaml_root }}/config/config.php
