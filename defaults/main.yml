@@ -1,5 +1,6 @@
 ---
 simplesaml_install_location: /srv
+simplesaml_install_symlink: simplesamlphp
 simplesaml_entity_id: entity
 simplesaml_version: "1.13.2"
 simplesaml_sha256: ac22f4ae4bc94120182c88efdbb76b2a502c85fb005dca44408370b07848ea32

@@ -18,12 +18,12 @@
 - name: Symlink the SimpleSAMLPHP folder
   file:
     src: "{{ simplesaml_install_location }}/simplesamlphp-{{ simplesaml_version }}"
-    dest: "{{ simplesaml_install_location }}/simplesamlphp"
+    dest: "{{ simplesaml_install_location }}/{{ simplesaml_install_symlink }}"
     state: link
     
 - name: Set facts about the installation
   set_fact:
-    simplesaml_root: "{{ simplesaml_install_location }}/simplesamlphp"
+    simplesaml_root: "{{ simplesaml_install_location }}/{{ simplesaml_install_symlink }}"
     
 # Write the SAML configuration files
 - name: Write SAML authentication sources file
